@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('sender_id')->constrained('users');
             $table->foreignId('reciever_id')->constrained('users');
-            $table->tinyInteger('is_sender_connected')->default(0);
-            $table->tinyInteger('is_reciever_connected')->default(0);
+            $table->tinyInteger('is_both_connected')->default(0);
             $table->timestamps();
         });
     }

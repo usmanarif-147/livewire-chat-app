@@ -8,9 +8,9 @@
                         <livewire:social.people />
                         <!-- chatlist -->
 
-                        <!-- chatbox -->
-
-                        <livewire:social.chat-box />
+                        @if ($selectedId)
+                            <livewire:social.chat-box :id="$selectedId" key="{{ $selectedId }}" />
+                        @endif
 
                     </div>
                     <!-- chatbox -->
@@ -18,4 +18,5 @@
             </div>
         </div>
     </section>
+
 </div>

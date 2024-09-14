@@ -37,11 +37,13 @@
                                 <div class="flex-grow-1 ms-3">
                                     <h3>{{ $connection['name'] }}</h3>
                                     <p>{{ $connection['email'] }}</p>
-                                    <p>front end developer</p>
+                                    <p>{{ $connection['last_message'] }}</p>
                                 </div>
-                                <div>
-                                    <span class="text-dark">5</span>
-                                </div>
+                                @if ($connection['unread'])
+                                    <div>
+                                        <span class="text-dark">{{ $connection['unread'] }}</span>
+                                    </div>
+                                @endif
                             </a>
                         @endforeach
                     </div>

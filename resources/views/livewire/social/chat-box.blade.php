@@ -15,7 +15,7 @@
                                         alt="user img">
                                 </div>
                                 <div class="flex-grow-1 ms-3">
-                                    <h3>{{ $user->name }}</h3>
+                                    <h3>{{ $user->name }} {{ $connectionChat->count() }} </h3>
                                     <p>{{ $user->email }}</p>
                                 </div>
                             </div>
@@ -47,30 +47,28 @@
                         </div>
                     </div>
                 @else
-                    <h3> Start Chat With Your Friends </h3>
+                    <h3>
+                        Start Chat With Your Friends
+                    </h3>
                 @endif
             </div>
 
 
             <div class="modal-body">
-                <div class="msg-body">
-                    <ul>
-                        @forelse ($connectionChat as $chat)
-                            @if ($chat['sender'])
-                                <li class="sender">
-                                    <p> {{ $chat['message'] }} </p>
-                                    <span class="time">{{ $chat['created_at'] }}</span>
+                <div class="msg-body" id="msg-body">
+                    <ul id="message-list">
+                        @forelse ($connectionChat as $message)
+                            @if ($message['sender'])
+                                <li class="repaly" id="{{ $loop->last ? 'last-message' : '' }}">
+                                    <p> {{ $message['message'] }} </p>
+                                    <span class="time">{{ $message['created_at'] }}</span>
                                 </li>
                             @else
-                                <li class="repaly">
-                                    <p> {{ $chat['message'] }} </p>
-                                    <span class="time">{{ $chat['created_at'] }}</span>
+                                <li class="sender" id="{{ $loop->last ? 'last-message' : '' }}">
+                                    <p> {{ $message['message'] }} </p>
+                                    <span class="time">{{ $message['created_at'] }}</span>
                                 </li>
                             @endif
-                            {{-- <li class="sender">
-                                <p> {{ $chat->message }} </p>
-                                <span class="time">{{ $chat->created_at }}</span>
-                            </li> --}}
                         @empty
                             <p> No Chat Available </p>
                         @endforelse

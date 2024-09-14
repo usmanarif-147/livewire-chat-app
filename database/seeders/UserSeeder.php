@@ -14,12 +14,42 @@ class UserSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        for ($i = 0; $i < 100; $i++) {
-            User::create([
-                'name' => $faker->name,
-                'email' => $faker->email,
+
+        $users = [
+            [
+                'name' => 'usman',
+                'email' => 'usman@gmail.com',
                 'password' => bcrypt('11223344')
-            ]);
+            ],
+            [
+                'name' => 'junaid',
+                'email' => 'junaid@gmail.com',
+                'password' => bcrypt('11223344')
+            ],
+            [
+                'name' => 'ans',
+                'email' => 'ans@gmail.com',
+                'password' => bcrypt('11223344')
+            ],
+            [
+                'name' => 'faiza',
+                'email' => 'faiza@gmail.com',
+                'password' => bcrypt('11223344')
+            ],
+            [
+                'name' => 'aiza',
+                'email' => 'aiza@gmail.com',
+                'password' => bcrypt('11223344')
+            ],
+            [
+                'name' => 'fatima',
+                'email' => 'fatima@gmail.com',
+                'password' => bcrypt('11223344')
+            ],
+        ];
+
+        foreach ($users as $user) {
+            User::create($user);
         }
     }
 }

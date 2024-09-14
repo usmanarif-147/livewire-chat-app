@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('sender_id')->constrained('users');
             $table->foreignId('reciever_id')->constrained('users');
             $table->text('message')->nullable();
+            $table->tinyInteger('is_read')->default(0);
             $table->timestamps();
         });
     }
