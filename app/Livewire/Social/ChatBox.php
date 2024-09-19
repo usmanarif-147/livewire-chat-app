@@ -20,6 +20,7 @@ class ChatBox extends Component
     {
         $this->userId = $id;
         $this->loadChatData();
+        $this->dispatch('chat-box-rendered');
     }
 
     public function updatedUserId($value)
@@ -62,6 +63,7 @@ class ChatBox extends Component
         $this->getConnectionChat();
 
         $this->resetForm();
+        $this->dispatch('chat-box-rendered');
     }
 
     public function resetForm()

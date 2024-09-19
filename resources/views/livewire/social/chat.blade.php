@@ -19,4 +19,18 @@
         </div>
     </section>
 
+    <script>
+        window.addEventListener('chat-box-rendered', event => {
+            scrollToBottom();
+        });
+
+        function scrollToBottom() {
+            var lastMessage = document.getElementById('last-message');;
+            if (lastMessage) {
+                lastMessage.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
 </div>
